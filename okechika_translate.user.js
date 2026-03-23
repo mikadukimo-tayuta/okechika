@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         okechika
-// @match        https://www.qtes9gu0k.xyz/*
+// @name         okechika_translate
+// @match        https://*.qtes9gu0k.xyz/*
 // @grant        none
 // @run-at       document-end
-// @updateURL    https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/refs/heads/main/translate.js
-// @downloadURL  https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/refs/heads/main/translate.js
+// @updateURL    https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/refs/heads/main/okechika_translate.user.js
+// @downloadURL  https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/refs/heads/main/okechika_translate.user.js
 // @version      1.0.3
 // ==/UserScript==
 

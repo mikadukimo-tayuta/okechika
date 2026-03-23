@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         okechika
-// @match        https://www.qtes9gu0k.xyz
+// @match        https://www.qtes9gu0k.xyz/*
 // @grant        none
 // @run-at       document-end
 // @updateURL    https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/refs/heads/main/translate.js
 // @downloadURL  https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/refs/heads/main/translate.js
-// @version      1.0.0
+// @version      1.0.3
 // ==/UserScript==
 
 (function () {
@@ -41,7 +41,8 @@
         "刱": "罪", "凗": "過", "凘": "去", "冓": "熟", "凲": "存", "兀": "在",
         "卤": "明", "乳": "三", "儴": "忌", "勚": "屍", "侤": "先", "匂": "頭",
         "匱": "別", "亣": "世", "儫": "界", "匦": "集", "儵": "屋", "个": "一",
-        "。": "。", "与": "場", "剑": "流", "偢": "多", "剎": "月", "仩": "親"
+        "。": "。", "与": "場", "剑": "流", "偢": "多", "剎": "月", "仩": "親",
+        "丏": "所", "亳": "間", "儛": "入る", "": "", "": "", "": "", "": ""
     };
     let enabled = false;
 

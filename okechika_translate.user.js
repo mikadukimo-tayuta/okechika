@@ -5,7 +5,7 @@
 // @run-at       document-end
 // @updateURL    https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/main/okechika_translate.user.js
 // @downloadURL  https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/main/okechika_translate.user.js
-// @version      1.0.6
+// @version      1.0.7
 // ==/UserScript==
 
 (function () {

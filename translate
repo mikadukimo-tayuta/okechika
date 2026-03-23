@@ -1,0 +1,154 @@
+// ==UserScript==
+// @name         okechika
+// @match        https://www.qtes9gu0k.xyz
+// @grant        none
+// @run-at       document-end
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    const map = {
+        "东": "あ", "代": "い", "乱": "う", "仃": "え", "僌": "お",
+        "丌": "か", "丄": "き", "乇": "く", "丟": "け", "一": "こ",
+        "乡": "さ", "丣": "し", "丆": "す", "乐": "せ", "亃": "そ",
+        "世": "た", "亝": "ち", "佄": "つ", "伸": "て", "乛": "と",
+        "不": "な", "丂": "に", "ヌ": "ぬ", "劏": "ね", "三": "の",
+        "万": "は", "伕": "ひ", "フ": "ふ", "仁": "へ", "临": "ほ",
+        "乌": "ま", "乹": "み", "倈": "む", "丗": "め", "乢": "も",
+        "举": "や", "ユ": "ゆ", "伥": "よ", "乏": "ら", "丝": "り",
+        "丕": "る", "丢": "れ", "买": "ろ", "兰": "わ", "乖": "を", "侕": "ん",
+        "両": "が", "亇": "ぎ", "俥": "ぐ", "义": "げ", "兡": "ご",
+        "冯": "ざ", "亏": "じ", "争": "ず", "ゼ": "ぜ", "ゾ": "ぞ",
+        "乯": "だ", "ヂ": "ぢ", "ヅ": "づ", "丐": "で", "亠": "ど",
+        "仝": "っ", "乥": "ば", "ビ": "び", "别": "ぶ", "刬": "べ", "ボ": "ぼ",
+        "傫": "ぱ", "ピ": "ぴ", "傰": "ぷ", "倨": "ぺ", "ポ": "ぽ",
+        "ャ": "ゃ", "伖": "ゅ", "亞": "ょ", "傯": "ー.",
+        "刘": "時", "佫": "本", "倏": "店", "俊": "舗", "剷": "定", "佲": "食",
+        "什": "地", "儺": "[した]", "侫": "知", "丑": "生", "丮": "活", "假": "客",
+        "侂": "様", "倯": "歩", "候": "小", "儹": "上", "偊": "重", "僭": "当",
+        "剬": "初", "偄": "堂", "下": "確", "亼": "是", "侚": "越", "儿": "存",
+        "傠": "手", "乄": "常", "們": "見", "勓": "開", "丩": "第", "凃": "閉",
+        "儌": "祭", "丙": "言", "业": "葉", "凾": "交", "伙": "響", "偺": "行",
+        "伞": "儀", "刄": "録", "准": "収", "仾": "色", "佋": "自", "刋": "年",
+        "乵": "日", "侸": "祈", "冡": "命", "仒": "形", "冤": "切", "剙": "味",
+        "侀": "死", "倾": "人", "凩": "不", "勲": "吉", "仪": "墓", "剣": "忘",
+        "佒": "物", "卖": "還", "傐": "暴", "僄": "払", "侏": "闇",
+        "仸": "禁", "僢": "呼", "僤": "寄", "刳": "犯",
+        "刱": "罪", "凗": "過", "凘": "去", "冓": "熟", "凲": "存", "兀": "在",
+        "卤": "明", "乳": "三", "儴": "忌", "勚": "屍", "侤": "先", "匂": "頭",
+        "匱": "別", "亣": "世", "儫": "界", "匦": "集", "儵": "屋", "个": "一",
+        "。": "。", "与": "場", "剑": "流", "偢": "多", "剎": "月"
+    };
+    let enabled = false;
+
+    const keys = Object.keys(map);
+    function replaceText(node) {
+        if (node.nodeType !== 3) return;
+
+        if (
+            node.parentNode &&
+            node.parentNode.classList &&
+            node.parentNode.classList.contains('translated-text')
+        ) return;
+
+        let text = node.nodeValue;
+        let replaced = false;
+
+        for (let i = 0; i < keys.length; i++) {
+            const key = keys[i];
+            if (text.includes(key)) {
+                text = text.split(key).join(map[key]);
+                replaced = true;
+            }
+        }
+
+        if (replaced) {
+            const span = document.createElement('span');
+            span.className = 'translated-text';
+            span.textContent = text;
+            node.replaceWith(span);
+        }
+    }
+    const style = document.createElement('style');
+    style.textContent = `
+  .translated-text {
+    font-family: "Yu Gothic", "Yu Gothic UI", sans-serif !important;
+  }
+`;
+    document.head.appendChild(style);
+
+    function walk(node) {
+        for (let i = 0; i < node.childNodes.length; i++) {
+            walk(node.childNodes[i]);
+        }
+        replaceText(node);
+    }
+
+    function run() {
+        walk(document.body);
+    }
+
+    const btn = document.createElement('button');
+    btn.textContent = 'おふ';
+
+    Object.assign(btn.style, {
+        position: 'fixed',
+        top: '50px',
+        right: '20px',
+        zIndex: '9999',
+        padding: '8px 12px',
+        background: '#006432',
+        color: '#fff',
+        border: 'none',
+        cursor: 'pointer',
+        'font-size': '18px',
+        'border-radius': '10px',
+        'font-family': '"Yu Gothic", "Yu Gothic UI", sans-serif'
+    });
+
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                if (
+                    node.nodeType === 1 &&
+                    node.classList &&
+                    node.classList.contains('translated-text')
+                ) return;
+
+                if (
+                    node.parentNode &&
+                    node.parentNode.classList &&
+                    node.parentNode.classList.contains('translated-text')
+                ) return;
+
+                walk(node);
+            });
+        });
+    });
+
+    function startObserver() {
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+    function stopObserver() {
+        observer.disconnect();
+    }
+
+    btn.onclick = () => {
+        enabled = !enabled;
+        btn.textContent = enabled ? 'おん' : 'おふ';
+
+        if (enabled) {
+            run();
+            startObserver();
+        } else {
+            stopObserver();
+            location.reload();
+        }
+    };
+
+    document.body.appendChild(btn);
+})();

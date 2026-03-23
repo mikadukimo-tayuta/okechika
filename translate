@@ -107,7 +107,7 @@
         border: 'none',
         cursor: 'pointer',
         'font-size': '18px',
-        'border-radius': '10px',
+        'border-radius': '5px',
         'font-family': '"Yu Gothic", "Yu Gothic UI", sans-serif'
     });
 

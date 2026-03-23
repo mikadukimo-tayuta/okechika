@@ -5,7 +5,7 @@
 // @run-at       document-end
 // @updateURL    https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/main/okechika_translate.user.js
 // @downloadURL  https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/main/okechika_translate.user.js
-// @version      1.0.10
+// @version      1.0.11
 // ==/UserScript==
 
 (function () {
@@ -73,7 +73,8 @@
   "仚":"覗","卋":"像","且":"美","処":"我","丞":"受",
   "伊":"導","亷":"音","勍":"思","兎":"広","冦":"扱",
   "剃":"清","勇":"保","偮":"求","偬":"価","传":"早",
-  "俳":"塞","刌":"以"
+  "俳":"塞","刌":"以","仰":"身","剠":"決","仫":"色",
+    "乻":"変","俻":"迷","剪":"子","仑":"異"
 };
     let enabled = false;
 

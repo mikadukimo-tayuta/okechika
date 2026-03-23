@@ -5,7 +5,7 @@
 // @run-at       document-end
 // @updateURL    https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/refs/heads/main/okechika_translate.user.js
 // @downloadURL  https://raw.githubusercontent.com/mikadukimo-tayuta/okechika/refs/heads/main/okechika_translate.user.js
-// @version      1.0.3
+// @version      1.0.4
 // ==/UserScript==
 
 (function () {
@@ -42,7 +42,8 @@
         "卤": "明", "乳": "三", "儴": "忌", "勚": "屍", "侤": "先", "匂": "頭",
         "匱": "別", "亣": "世", "儫": "界", "匦": "集", "儵": "屋", "个": "一",
         "。": "。", "与": "場", "剑": "流", "偢": "多", "剎": "月", "仩": "親",
-        "丏": "所", "亳": "間", "儛": "入る", "": "", "": "", "": "", "": ""
+        "丏": "所", "亳": "間", "儛": "入", "勁": "化", "侦": "待", "伛": "合",
+        "舗": "ぽ", "之": "々", "倚": "楽", "凋": "被"
     };
     let enabled = false;
 
